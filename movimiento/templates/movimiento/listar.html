@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Movimientos{% endblock %}
+{% block content %}
+<h2>Listado de Movimientos</h2>
+<a href="{% url 'crear_movimiento' %}">Registrar Movimiento</a>
+<ul>
+    {% for m in movimientos %}
+    <li>
+        {{ m.fecha }} - {{ m.producto.nombre }} - {{ m.tipo }} - {{ m.cantidad }} 
+        <a href="{% url 'editar_movimiento' m.id %}">Editar</a>
+        <a href="{% url 'eliminar_movimiento' m.id %}">Eliminar</a>
+        <a href="{% url 'historial_producto' m.producto.id %}">Histórico</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

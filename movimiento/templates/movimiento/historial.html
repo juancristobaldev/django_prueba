@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Histórico de {{ producto.nombre }}{% endblock %}
+{% block content %}
+<h2>Histórico de Movimientos de {{ producto.nombre }}</h2>
+<ul>
+    {% for m in movimientos %}
+    <li>{{ m.fecha }} - {{ m.tipo }} - {{ m.cantidad }} (Bodega: {{ m.bodega.nombre }})</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'listar_movimientos' %}">Volver a movimientos</a>
+{% endblock %}

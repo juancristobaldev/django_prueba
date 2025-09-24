@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Bodegas{% endblock %}
+
+{% block content %}
+<h2>Listado de Bodegas</h2>
+<a href="{% url 'crear_bodega' %}">Crear Bodega</a>
+<ul>
+    {% for b in bodegas %}
+    <li>
+        {{ b.nombre }} - {{ b.ubicacion }}
+        <a href="{% url 'editar_bodega' b.id %}">Editar</a>
+        <a href="{% url 'eliminar_bodega' b.id %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

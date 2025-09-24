@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar Bodega{% endblock %}
+
+{% block content %}
+<h2>Eliminar Bodega</h2>
+<p>¿Seguro que quieres eliminar "{{ bodega.nombre }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+    <a href="{% url 'listar_bodegas' %}">Cancelar</a>
+</form>
+{% endblock %}

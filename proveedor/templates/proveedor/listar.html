@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Proveedores{% endblock %}
+
+{% block content %}
+<h2>Listado de Proveedores</h2>
+<a href="{% url 'crear_proveedor' %}">Crear Proveedor</a>
+<ul>
+    {% for prov in proveedores %}
+    <li>
+        {{ prov.razon_social }} - {{ prov.rut }} - {{ prov.email }} - {{ prov.telefono }}
+        <a href="{% url 'editar_proveedor' prov.id %}">Editar</a>
+        <a href="{% url 'eliminar_proveedor' prov.id %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
